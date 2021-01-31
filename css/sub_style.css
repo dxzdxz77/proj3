@@ -95,8 +95,15 @@
 #mo_reserve ul{
     text-align: center;
 }
+#mo_reserve ul:after{
+    content: '';
+    display: block;
+    clear: both;
+}
 #mo_reserve ul > li{
     display: inline-block;
+    /*display: flex;
+    flex-wrap: nowrap;*/
     border: 1px solid #AF8D5D;
     background-color: #fff8ec;
     box-sizing: border-box;

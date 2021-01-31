@@ -661,4 +661,14 @@ button{
             display: none;
         }
 }/*905*/
-@media all and (max-width:785px){}/*785폰*/
+@media all and (max-width:768px){
+      #slide .slick-dots li {
+            /*float: left;*/
+            margin-right: 15px;
+        }
+        #slide .slick-dots {
+            /*position: absolute;
+            top: 120px;*/
+            left: calc(50% - 36px);
+        }
+}/*768폰*/

@@ -3,7 +3,10 @@ $(function(){
         lazyLoad: 'ondemand', // ondemand progressive anticipated
         infinite: true,
         dots : true,
-        arrows : false, 
+        arrows : false,
+        autoplay : true,
+        autoplaySpeed : 2000,
+        pauseOnHover : true, 
       }); //slick
 
       $('.slick-slide, .panel').each(function(){

@@ -855,3 +855,15 @@ h3{
     }
 
 }/*785폰*/
+@media all and (max-width: 420px){
+    #sec1 .title {
+        /*
+        padding-top: 15px;
+        padding-left: 15px;*/
+        font-size: 1.2rem;
+    }
+    #sec1 button {
+        margin-top: 5px;
+        /*margin-left: 15px;*/
+    }
+}
