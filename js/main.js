@@ -1,4 +1,38 @@
 $(function(){
+    //모바일 네비
+        $('.nav_btn').click(function(){
+            $('.nav_pop').css({right:0});
+        })//click
+        $('.close_btn').click(function(){
+            $('.nav_pop').css({right:'-100%'})
+        })//click
+        $('#nav_mo .nav_tit').click(function(){
+            $('#nav_mo .nav_tit .sub').slideUp();
+            $(this).find('.sub').slideDown();
+        })//click 만약 이상태가 싫으면 sta = 1/sta = 2 를 써야한다
+        
+    
+        $(window).scroll(function(){
+            if($(document).scrollTop() >= 300){
+                $('#header_mo').css({'background-color':'#fff'});
+                $('#header_mo .nav_btn span').css({'backgroundcolor':'#ddd'});
+                $('#header_mo.sub_header').addClass('active');//#header.sub_header 붙여 쓴이유는 자기 자신이니까 html에 id와 class가 같이 들어있기때문에 붙여쓴거고 띄워서쓰는 것들은 아이디 밑에 클래스
+                $('#header_mo.sub_header').css({'background-color':'#fff'});
+            }//if
+            else{
+                $('#header_mo').css({'background-color':'transparent'});//transparent 투명한
+                $('#header_mo .nav_btn span').css({'backgroundcolor':'#dedede'})
+                $('#header_mo.sub_header').removeClass('active');
+                $('#header_mo.sub_header').css({'background-color':'#fff'});
+            }//else
+        })//scroll
+    
+        $('#quick .center a').click(function(event){
+            event.preventDefault();//a를 누르면 화면이 맨위로 올라가니까 a를 작동하지 않게 하는것 function(에) 이름을 주고 그 이름을 똑같이 쓴다
+            $(this).find('span').toggleClass('active');//preventDefault = a,submit의 동작중단
+        })//quick click
+
+    //브라우저 네비
     $('#nav').mouseover(function(){
        $('#nav2_back').fadeIn();
        $('#nav2_box').addClass('on');
@@ -7,7 +41,8 @@ $(function(){
         $('#nav2_box').removeClass('on');
         $('#nav2_back').fadeOut();
     })
-    
+
+    //탭시작
     $('.tabSet').each(function(){
         var anchor_all = $(this).find('.tabs a');//변수를 기억합니다
         var panels_all = $(this).find('.panel');//모든 .tabs a(anchor)와 모든 .panels(div)을 제거할때 쓸것

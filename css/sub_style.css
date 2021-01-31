@@ -8,7 +8,9 @@
 #header .headertop li:last-child{
     color: #fff;
 }
-
+#header .headertop li:nth-child(3) img{
+    filter: invert(38%) sepia(3%) saturate(5%) hue-rotate(319deg) brightness(101%) contrast(90%);
+}
 #nav .depth1 > li >a {
     color: #333;
 }
@@ -16,6 +18,13 @@
     background-color: #534039;
     color: #fff;
 }
+/*#header_mo .nav_btn span {
+    background-color: #dedede;
+    width: 20px;
+    height: 2px;
+    margin-bottom: 5px;
+    display: block;
+}*/
 /************sec1****************************************/
 #sec1{
     margin-top: 150px;
@@ -45,6 +54,79 @@
     color: #fff;
     border: 1px solid #AF8D5D;
     background-color: #AF8D5D;
+}
+/***********mo_reserve********************************/
+#mo_reserve{
+    margin-top: 20px;
+    display: none;
+}
+/*#mo_reserve .reserve_box{
+    background-color: #AF8D5D;
+    padding: 30px 0;
+    width: 70%;
+    margin: 0 auto;
+}*/
+#mo_reserve p{
+    border: 1px solid #AF8D5D;
+    background-color: #fff8ec;
+    width: 80%;
+    height: 35px;
+    padding-left: 10px;
+    color: #534039;
+    margin: 0 auto;
+    margin-bottom: 15px;
+    line-height: 2.3em;
+    font-size: 0.9rem;
+}
+#mo_reserve p.date{
+    color: #aaa;
+}
+#mo_reserve p.date img{
+    filter: none;
+    width: 15px;
+    transform: translate(-10px,10px);
+}
+#mo_reserve p img{
+    width: 10px;
+    transform: translate(-10px,15px);
+    float: right;
+    filter: invert(21%) sepia(30%) saturate(474%) hue-rotate(330deg) brightness(96%) contrast(83%);
+}
+#mo_reserve ul{
+    text-align: center;
+}
+#mo_reserve ul > li{
+    display: inline-block;
+    border: 1px solid #AF8D5D;
+    background-color: #fff8ec;
+    box-sizing: border-box;
+    width: calc((80% - 30px)/3);
+    height: 35px;
+    padding-left: 10px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    line-height: 2.3em;
+    font-size: 0.9rem;
+    text-align: left;
+}
+#mo_reserve ul > li:last-child{
+    margin-right: 0;
+}
+#mo_reserve ul > li img{
+    width: 10px;
+    float: right;
+    transform: translate(-10px,15px);
+    filter: invert(21%) sepia(30%) saturate(474%) hue-rotate(330deg) brightness(96%) contrast(83%);
+}
+#mo_reserve button{
+    background-color: #534039;
+    width: 81%;
+    height: 40px;
+    border: none;
+    color: #fff;
+    margin: 0 auto;
+    display: block;
+    font-weight: 600;
 }
 /***********reserve********************************/
 #reserve{
@@ -154,3 +236,89 @@
 #sec2 ul > li:hover .caption{
     opacity:1;
 }
+
+
+
+@media all and (max-width:1185px){
+    #sec1 .inner{
+        width: 900px;
+    }
+    #sec1 h2 {
+        font-size: 3rem;
+    }
+    #sec1 ul > li {
+        font-size: 0.8rem;
+    }
+    #sec1 ul > li p {
+        /*display: inline-block;
+        text-align: center;
+        margin-right: 10px;
+        border: 1px solid #666;
+        border-radius: 50%;*/
+        width: 20px;
+        height: 20px;
+    }
+    /*reserve*/
+    #reserve {
+        margin-top: 40px;
+    }
+    #reserve .inner{
+        width: 900px;
+    }
+    #reserve .re_list li {
+        /*float: left;
+        text-align: center;
+        color: rgb(170, 170, 170);*/
+        margin: 0px 10px;
+        font-size: 0.8rem;
+    }
+    #reserve .re_list li.button input {
+        /*background-color: #534039;
+        border: none;
+        color: #fff;*/
+        width: 98px;
+        height: 45px;
+    }
+    #sec2 .inner{
+        width: 900px;
+    }
+}/*1180태블릿*/
+@media all and (max-width:900px){
+    #wrap{
+        background-color: #F1E3C4;
+    }
+    #header_mo .nav_btn span {
+        background-color: #534039;
+    }
+    #sec1 {
+        margin-top: 90px;
+    }
+    #sec1 .inner{
+        width: 100%;
+    }
+    #sec1 h2 {
+        font-size: 2.5rem;
+        font-weight: 500;
+        text-align: center;
+    }
+    #reserve{
+        display: none;
+    }
+    #mo_reserve{
+        display: block;
+    }
+    #sec1 ul{
+        display: none;
+    }
+    #sec2{
+        display: none;
+    }
+    #mo_footer {
+        margin-top: 30px;
+    }
+    #mo_footer h1 img {
+        display: none;
+    }
+}/*900*/
+@media all and (max-width:700px){
+}/*700*/
