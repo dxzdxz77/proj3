@@ -4,11 +4,19 @@ $(function(){
             $('.nav_pop').css({right:0});
         })//click
         $('.close_btn').click(function(){
-            $('.nav_pop').css({right:'-100%'})
+            if($(window).width() < 400){
+                $('.nav_pop').css({right:'-400px'})
+            }
+            else{
+                $('.nav_pop').css({right:'-100%'})
+            }
         })//click
+        /*$('.close_btn').click(function(){
+            $('.nav_pop').css({right:'-100%'})
+        })//click수정전*/
         $('#nav_mo .nav_tit').click(function(){
-            $('#nav_mo .nav_tit .sub').slideUp();
-            $(this).find('.sub').slideDown();
+            $('#nav_mo .nav_tit .sub').hide();
+            $(this).find('.sub').show();
         })//click 만약 이상태가 싫으면 sta = 1/sta = 2 를 써야한다
         
     
@@ -65,43 +73,47 @@ $(function(){
     })//tab
 
     //달력시작
-       /* $.datepicker.setDefaults($.datepicker.regional['ko']); 
-        $( "#startDate" ).datepicker({
-             changeMonth: true, 
-             changeYear: true,
-             nextText: '다음 달',
-             prevText: '이전 달', 
-             dayNames: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
-             dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'], 
-             monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-             monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-             dateFormat: "yymmdd",
-             maxDate: 0,                       // 선택할수있는 최소날짜, ( 0 : 오늘 이후 날짜 선택 불가)
-             onClose: function( selectedDate ) {    
-                  //시작일(startDate) datepicker가 닫힐때
-                  //종료일(endDate)의 선택할수있는 최소 날짜(minDate)를 선택한 시작일로 지정
-                 $("#endDate").datepicker( "option", "minDate", selectedDate );
-             }    
-        });
-
-        $( "#endDate" ).datepicker({
-             changeMonth: true, 
-             changeYear: true,
-             nextText: '다음 달',
-             prevText: '이전 달', 
-             dayNames: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
-             dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'], 
-             monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-             monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
-             dateFormat: "yymmdd",
-             maxDate: 10,                       // 선택할수있는 최대날짜, ( 0 : 오늘 이후 날짜 선택 불가)
-             onClose: function( selectedDate ) {    
-                 // 종료일(endDate) datepicker가 닫힐때
-                 // 시작일(startDate)의 선택할수있는 최대 날짜(maxDate)를 선택한 시작일로 지정
-                 $("#startDate").datepicker( "option", "maxDate", selectedDate );
-             }    
-
-        });    
-});//달력끝*/
+    //오늘날짜 기본셋팅
+    $("#startDate").attr('value',getToday());
+    $("#endDate").attr('value',getToday());
+     function getToday(){
+         var now = new Date();
+         var year = now.getFullYear();
+         var month = now.getMonth() + 1;    //1월이 0으로 되기때문에 +1을 함.
+         var date = now.getDate();
+     
+         month = month >=10 ? month : "0" + month;
+         date  = date  >= 10 ? date : "0" + date;
+          // ""을 빼면 year + month (숫자+숫자) 됨.. ex) 2018 + 12 = 2030이 리턴됨.
+     
+         //console.log(""+year + month + date);
+         return today = ""+year+"."+ month + "." + date; 
+     }
+    //달력호출
+    $("#kalendar_start").datepicker({
+        dateFormat: 'yy/mm/dd',
+        onSelect: function(){
+              $("#startDate").attr('value',$("#kalendar_start").val());
+ 
+             }
+      });
+     $("#kalendar_end").datepicker({
+        dateFormat: 'yy/mm/dd',
+        onSelect: function(){
+              $("#endDate").attr('value',$("#kalendar_end").val());
+ 
+             }
+      });
+    //카렌다박스 열기 
+    $('.check').click(function(){$('.kalendar_box').show()})
+ 
+ //카렌다박스 닫고 몇박 계산하기
+ $('.kalendar_close').click(function(){
+    var enddate = $('#endDate').attr('value').substr(0,4) + $('#endDate').attr('value').substr(5,2) + $('#endDate').attr('value').substr(8,2)
+    var startdate = $('#startDate').attr('value').substr(0,4) + $('#startDate').attr('value').substr(5,2) + $('#startDate').attr('value').substr(8,2)
+    var day = enddate - startdate
+    $('.day input').attr('value',day+"박");
+    $('.kalendar_box').hide();
+ })//달력끝
 
 })//js end

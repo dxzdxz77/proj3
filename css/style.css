@@ -60,7 +60,36 @@ h3{
     display: block;
     margin-top: 15px;
 }
-
+/**/
+#reserve form{
+    position:relative;
+}
+.kalendar_box {
+    position:absolute;
+    z-index:999;
+    /*width:100%;*/
+    background-color:#fff;
+    top:50px;
+    left: 100px;
+    /**/display: none;
+}
+.kalendar_box > div{
+    float:left;
+}
+#reserve .kalendar_box .kalendar_close{
+    position:absolute;
+    right: -50px;
+    top:0;
+    width:auto;
+}
+#reserve .kalendar_box .kalendar_close img{
+    width: 50%;
+    filter: invert(72%) sepia(3%) saturate(5%) hue-rotate(326deg) brightness(94%) contrast(89%);
+}
+/******달력수정한것*************/
+.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next{
+    border: 1px solid #333;
+}
 /************************section1******************************/
 #sec1{
     position: relative;
@@ -758,7 +787,7 @@ h3{
     /*sec1*/
     #sec1{
         /*position: relative;*/
-        margin-top: 0px;
+        margin-top: -5px;
     }
     #sec1::after{
         content: '';

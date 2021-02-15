@@ -672,3 +672,11 @@ button{
             left: calc(50% - 36px);
         }
 }/*768폰*/
+@media all and (max-width: 400px){
+      .nav_pop{
+            right: -400px;
+      }
+      .nav_pop #nav_mo .close_btn{
+            left: 0;
+      }
+}/*400*/
