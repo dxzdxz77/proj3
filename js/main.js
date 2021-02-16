@@ -107,7 +107,8 @@ $(function(){
     //카렌다박스 열기 
     $('.check input').click(function(){
         alert();
-    //$('.kalendar_box').show()})
+    //$('.kalendar_box').show()
+})
  
  //카렌다박스 닫고 몇박 계산하기
  $('.kalendar_close').click(function(){
